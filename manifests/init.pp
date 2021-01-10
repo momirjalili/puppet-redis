@@ -272,7 +272,7 @@ class redis (
   Integer[0] $min_slaves_to_write                                = 0,
   Boolean $no_appendfsync_on_rewrite                             = false,
   Boolean $rdb_del_sync_files                                    = true, #Cleanup RDB files after sync
-  Boolean $rdb_diskless_sync                                     = true, #Diskless syncronization
+  Boolean $repl_diskless_sync                                    = true, #Diskless syncronization
   Integer[0] $repl_diskless_sync_delay                           = 5, #Delay in diskless syncronization
   String[0] $repl_diskless_load                                  = "disabled", #Experimental RDB Diskless Load
   Boolean $oom_score_adj                                         = true, #Control Potential OOM Events
