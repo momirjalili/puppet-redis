@@ -519,8 +519,8 @@ repl-diskless-sync <% if @repl_diskless_sync -%>yes<% else -%>no<% end %>
 # "swapdb"      - Keep a copy of the current db contents in RAM while parsing
 #                 the data directly from the socket. note that this requires
 #                 sufficient memory, if you don't have it, you risk an OOM kill.
-repl-diskless-load disabled
-<% if @repl_diskless_load -%>repl-diskless-load disabled <%= @repl_diskless_load %><% end -%>
+#repl-diskless-load disabled
+<% if @repl_diskless_load -%>repl-diskless-load <%= @repl_diskless_load %><% end -%>
 
 # Replicas send PINGs to server in a predefined interval. It's possible to
 # change this interval with the repl_ping_replica_period option. The default
