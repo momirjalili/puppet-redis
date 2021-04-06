@@ -224,6 +224,11 @@
 #   Only set if cluster_enabled is true
 # @param instances
 #   Iterate through multiple instance configurations
+# @acllog_max_length
+#   The ACL Log tracks failed commands and authentication events associated with ACLs.
+# @aclfile
+#   Instead of configuring users here in redis conf, it is possible to use
+#   a stand-alone file just listing users
 class redis (
   Boolean $activerehashing                                       = true,
   Boolean $aof_load_truncated                                    = true,
@@ -329,6 +334,8 @@ class redis (
   Boolean $cluster_require_full_coverage                         = true,
   Integer[0] $cluster_migration_barrier                          = 1,
   Hash[String[1], Hash] $instances                               = {},
+  Integer[0] $acllog_max_length                                  = 128,
+  Optional[String] $aclfile                                       = undef,
 ) inherits redis::params {
   if $package_ensure =~ /^([0-9]+:)?[0-9]+\.[0-9]/ {
     if ':' in $package_ensure {
