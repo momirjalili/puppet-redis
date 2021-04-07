@@ -279,7 +279,7 @@ class redis (
   Boolean $rdb_del_sync_files                                    = true, #Cleanup RDB files after sync
   Boolean $repl_diskless_sync                                    = true, #Diskless syncronization
   Integer[0] $repl_diskless_sync_delay                           = 5, #Delay in diskless syncronization
-  String[0] $repl_diskless_load                                  = "disabled", #Experimental RDB Diskless Load
+  String[0] $repl_diskless_load                                  = 'disabled', #Experimental RDB Diskless Load
   Boolean $oom_score_adj                                         = true, #Control Potential OOM Events
   String[1] $oom_score_adj_values                                = '0 200 800', #controls the specific values used for master, replica and background child processes
   Optional[String[1]] $notify_keyspace_events                    = undef,
