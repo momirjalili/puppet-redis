@@ -152,7 +152,7 @@ tcp-keepalive <%= @tcp_keepalive %>
 # server to connected clients, masters or cluster peers.  These files should be
 # PEM formatted.
 #
-# tls-cert-file redis.crt 
+# tls-cert-file redis.crt
 # tls-key-file redis.key
 
 # Configure a DH parameters file to enable Diffie-Hellman (DH) key exchange:
@@ -788,10 +788,11 @@ min-replicas-max-lag <%= @min_slaves_max_lag %>
 # ACL LOG
 #
 # The ACL Log tracks failed commands and authentication events associated
-# with ACLs. The ACL Log is useful to troubleshoot failed commands blocked 
-# by ACLs. The ACL Log is stored in memory. You can reclaim memory with 
+# with ACLs. The ACL Log is useful to troubleshoot failed commands blocked
+# by ACLs. The ACL Log is stored in memory. You can reclaim memory with
 # ACL LOG RESET. Define the maximum entry length of the ACL Log below.
-acllog-max-len 128
+# acllog-max-len 128
+acllog-max-len <%= @acllog_max_length %>
 
 # Using an external ACL file
 #
@@ -804,6 +805,7 @@ acllog-max-len 128
 # format that is used inside redis.conf to describe users.
 #
 # aclfile /etc/redis/users.acl
+<% if @aclfile %> aclfile <%= @aclfile %> <% end -%>
 
 # IMPORTANT NOTE: starting with Redis 6 "requirepass" is just a compatibility
 # layer on top of the new ACL system. The option effect will be just setting
@@ -812,6 +814,7 @@ acllog-max-len 128
 # if they follow the new protocol: both will work.
 #
 # requirepass foobared
+<% if @requirepass -%>requirepass <%= @requirepass %><% end -%>
 
 # Command renaming (DEPRECATED).
 #
@@ -1358,18 +1361,18 @@ cluster-require-full-coverage <% if @cluster_require_full_coverage -%>yes<% else
 # cluster-replica-no-failover no
 
 # This option, when set to yes, allows nodes to serve read traffic while the
-# the cluster is in a down state, as long as it believes it owns the slots. 
+# the cluster is in a down state, as long as it believes it owns the slots.
 #
-# This is useful for two cases.  The first case is for when an application 
+# This is useful for two cases.  The first case is for when an application
 # doesn't require consistency of data during node failures or network partitions.
 # One example of this is a cache, where as long as the node has the data it
-# should be able to serve it. 
+# should be able to serve it.
 #
-# The second use case is for configurations that don't meet the recommended  
-# three shards but want to enable cluster mode and scale later. A 
+# The second use case is for configurations that don't meet the recommended
+# three shards but want to enable cluster mode and scale later. A
 # master outage in a 1 or 2 shard configuration causes a read/write outage to the
 # entire cluster without this option set, with it set there is only a write outage.
-# Without a quorum of masters, slot ownership will not change automatically. 
+# Without a quorum of masters, slot ownership will not change automatically.
 #
 # cluster-allow-reads-when-down no
 

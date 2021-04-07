@@ -26,6 +26,7 @@ repositories.
 ### Defined types
 
 * [`redis::instance`](#redisinstance): Allows the configuration of multiple redis configurations on one machine
+* [`redis::user`](#redisuser): Allows creation of multiple acl users for redis.
 
 ### Functions
 
@@ -894,13 +895,13 @@ As documented in the FAQ and https://redis.io/topics/admin
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 include redis::administration
 ```
 
-##### 
+#####
 
 ```puppet
 class {'redis::administration':
@@ -1229,7 +1230,7 @@ multiple redis instances on one machine without conflicts
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 redis::instance {'6380':
