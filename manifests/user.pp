@@ -10,11 +10,6 @@ define redis::user (
   String[1] $config_owner                  = $redis::config_owner,
 ) {
   if $aclfile {
-    concat { $aclfile:
-      owner => $config_owner,
-      group => $config_group,
-      mode  => $config_file_mode,
-    }
 
     concat::fragment { 'user':
       target  => $aclfile,

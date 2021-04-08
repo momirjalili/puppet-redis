@@ -339,6 +339,13 @@ define redis::instance (
       }
     }
   }
+  if $aclfile {
+      concat { $aclfile:
+        owner => $config_owner,
+        group => $config_group,
+        mode  => $config_file_mode,
+    }
+  }
 
   $_real_log_file = pick($log_file, "${log_dir}/redis-server-${name}.log")
   $bind_arr = [$bind].flatten
