@@ -4,7 +4,7 @@ define redis::user (
   String $password,
   String $status,
   String $acl_rules,
-  String $aclfile = $redis::aclfile,
+  Optional[String] $aclfile                = $redis::aclfile,
   Stdlib::Filemode $config_file_mode        = $redis::config_file_mode,
   String[1] $config_group                  = $redis::config_group,
   String[1] $config_owner                  = $redis::config_owner,
