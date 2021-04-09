@@ -17,7 +17,7 @@ define redis::user (
     }
   } else {
     include stdlib
-    file_line {
+    file_line { "redis_user_${username}":
       path => $config_file,
       line => "user ${username} ${status} ${acl_rules} >${password} \n",
     }
