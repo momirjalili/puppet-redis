@@ -283,7 +283,7 @@ define redis::instance (
   Stdlib::Absolutepath $pid_file                                 = "/var/run/redis/redis-server-${name}.pid",
   Variant[Stdlib::Absolutepath, Enum['']] $unixsocket            = "/var/run/redis/redis-server-${name}.sock",
   Stdlib::Absolutepath $workdir                                  = "${redis::workdir}/redis-server-${name}",
-  Integer[0] $acllog_max_length                                  = $redis::acllog_max_length,
+  Optional[Integer[0]] $acllog_max_length                        = $redis::acllog_max_length,
   Optional[String] $aclfile                                       = $redis::aclfile,
 ) {
   if $title == 'default' {

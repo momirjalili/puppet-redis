@@ -428,7 +428,7 @@ min-slaves-max-lag <%= @min_slaves_max_lag %>
 # by ACLs. The ACL Log is stored in memory. You can reclaim memory with
 # ACL LOG RESET. Define the maximum entry length of the ACL Log below.
 # acllog-max-len 128
-acllog-max-len <%= @acllog_max_length %>
+<% if @acllog_max_length %>acllog-max-len <%= @acllog_max_length %> <% end -%>
 
 # Using an external ACL file
 #
