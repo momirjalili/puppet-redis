@@ -441,7 +441,7 @@ min-slaves-max-lag <%= @min_slaves_max_lag %>
 # format that is used inside redis.conf to describe users.
 #
 # aclfile /etc/redis/users.acl
-<% if @aclfile %> aclfile <%= @aclfile %> <% end -%>
+<% if @aclfile %>aclfile <%= @aclfile %> <% end -%>
 
 # IMPORTANT NOTE: starting with Redis 6 "requirepass" is just a compatibility
 # layer on top of the new ACL system. The option effect will be just setting
