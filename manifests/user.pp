@@ -10,7 +10,6 @@ define redis::user (
   String[1] $config_owner                  = $redis::config_owner,
 ) {
   if $aclfile {
-
     concat::fragment { "redis_user_fragment_${username}":
       target  => $aclfile,
       content => "user ${username} ${status} ${acl_rules} >${password} \n",

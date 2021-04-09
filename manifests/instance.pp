@@ -340,10 +340,10 @@ define redis::instance (
     }
   }
   if $aclfile {
-      concat { $aclfile:
-        owner => $config_owner,
-        group => $config_group,
-        mode  => $config_file_mode,
+    concat { $aclfile:
+      owner => $config_owner,
+      group => $config_group,
+      mode  => $config_file_mode,
     }
   }
 
