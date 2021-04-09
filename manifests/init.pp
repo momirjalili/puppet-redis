@@ -334,7 +334,7 @@ class redis (
   Boolean $cluster_require_full_coverage                         = true,
   Integer[0] $cluster_migration_barrier                          = 1,
   Hash[String[1], Hash] $instances                               = {},
-  Integer[0] $acllog_max_length                                  = 128,
+  Optional[Integer[0]] $acllog_max_length                        = 128,
   Optional[String] $aclfile                                       = undef,
 ) inherits redis::params {
   if $package_ensure =~ /^([0-9]+:)?[0-9]+\.[0-9]/ {
