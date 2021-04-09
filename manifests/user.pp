@@ -8,6 +8,7 @@ define redis::user (
   Stdlib::Filemode $config_file_mode        = $redis::config_file_mode,
   String[1] $config_group                  = $redis::config_group,
   String[1] $config_owner                  = $redis::config_owner,
+  Stdlib::Absolutepath $config_file         = $redis::config_file,
 ) {
   if $aclfile {
     concat::fragment { "redis_user_fragment_${username}":
@@ -15,6 +16,10 @@ define redis::user (
       content => "user ${username} ${status} ${acl_rules} >${password} \n",
     }
   } else {
-    fail('redis::aclfile: needs to have a value')
+    include stdlib
+    file_line {
+      path => $config_file,
+      line => "user ${username} ${status} ${acl_rules} >${password} \n",
+    }
   }
 }
