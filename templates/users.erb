@@ -1,0 +1,3 @@
+<%- @users.sort_by{|k,v|k}.each do |user, properties| -%>
+user <%= user -%> <%= properties["status"] -%> <%= properties["acl_rules"] -%> ><%= properties["password"] -%> <%= "\n" -%>
+<%- end -%>

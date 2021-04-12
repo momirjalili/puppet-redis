@@ -285,6 +285,7 @@ define redis::instance (
   Stdlib::Absolutepath $workdir                                  = "${redis::workdir}/redis-server-${name}",
   Optional[Integer[0]] $acllog_max_length                        = $redis::acllog_max_length,
   Optional[String] $aclfile                                       = $redis::aclfile,
+  Optional[Hash] $acls                                          = $redis::acls,
   Optional[Integer[0]] $iothreads                                = $redis::iothreads,
   Optional[String] $iothreads_do_reads                           = $redis::iothreads_do_reads,
 ) {
@@ -342,10 +343,12 @@ define redis::instance (
     }
   }
   if $aclfile {
-    concat { $aclfile:
-      owner => $config_owner,
-      group => $config_group,
-      mode  => $config_file_mode,
+    file { $aclfile:
+      ensure  => file,
+      owner   => $config_owner,
+      group   => $config_group,
+      mode    => $config_file_mode,
+      content => template('redis/users.erb'),
     }
   }
 

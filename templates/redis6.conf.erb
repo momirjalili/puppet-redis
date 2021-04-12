@@ -1903,8 +1903,8 @@ jemalloc-bg-thread yes
 # Set bgsave child process to cpu affinity 1,10,11
 # bgsave_cpulist 1,10-11
 
-<% scope.compiler.catalog.vertices.each do |resource| -%>
- <% if resource.type == "Redis::User" -%>
- "user <%= resource[:username] resource[:status] resource[:acl_rules] >resource[:password] %>
- <% end -%>
-<% end -%>
+<% if !@aclfile %>
+<%- @users.sort_by{|k,v|k}.each do |user, properties| -%>
+user <%= user -%> <%= properties["status"] -%> <%= properties["acl_rules"] -%> ><%= properties["password"] -%> <%= "\n" -%>
+<%- end -%>
+<% end %>
