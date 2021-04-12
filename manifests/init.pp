@@ -336,6 +336,8 @@ class redis (
   Hash[String[1], Hash] $instances                               = {},
   Optional[Integer[0]] $acllog_max_length                        = 128,
   Optional[String] $aclfile                                       = undef,
+  Optional[Integer[0]] $iothreads                                = undef,
+  Optional[String] $iothreads_do_reads                           = undef,
 ) inherits redis::params {
   if $package_ensure =~ /^([0-9]+:)?[0-9]+\.[0-9]/ {
     if ':' in $package_ensure {

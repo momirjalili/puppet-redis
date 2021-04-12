@@ -285,6 +285,8 @@ define redis::instance (
   Stdlib::Absolutepath $workdir                                  = "${redis::workdir}/redis-server-${name}",
   Optional[Integer[0]] $acllog_max_length                        = $redis::acllog_max_length,
   Optional[String] $aclfile                                       = $redis::aclfile,
+  Optional[Integer[0]] $iothreads                                = $redis::iothreads,
+  Optional[String] $iothreads_do_reads                           = $redis::iothreads_do_reads,
 ) {
   if $title == 'default' {
     $redis_file_name_orig = $config_file_orig
