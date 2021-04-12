@@ -1904,7 +1904,7 @@ jemalloc-bg-thread yes
 # bgsave_cpulist 1,10-11
 
 <% if !@aclfile %>
-<%- @users.sort_by{|k,v|k}.each do |user, properties| -%>
+<%- @users.each do |user, properties| -%>
 user <%= user -%> <%= properties["status"] -%> <%= properties["acl_rules"] -%> ><%= properties["password"] -%> <%= "\n" -%>
 <%- end -%>
 <% end %>
