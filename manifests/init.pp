@@ -336,7 +336,7 @@ class redis (
   Hash[String[1], Hash] $instances                               = {},
   Optional[Integer[0]] $acllog_max_length                        = 128,
   Optional[String] $aclfile                                       = undef,
-  Optional[Hash] $acls                                           = undef,
+  Hash $acls                                                     = {},
   Optional[Integer[0]] $iothreads                                = undef,
   Optional[String] $iothreads_do_reads                           = undef,
 ) inherits redis::params {

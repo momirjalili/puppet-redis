@@ -285,7 +285,7 @@ define redis::instance (
   Stdlib::Absolutepath $workdir                                  = "${redis::workdir}/redis-server-${name}",
   Optional[Integer[0]] $acllog_max_length                        = $redis::acllog_max_length,
   Optional[String] $aclfile                                       = $redis::aclfile,
-  Optional[Hash] $acls                                          = $redis::acls,
+  Hash $acls                                                     = $redis::acls,
   Optional[Integer[0]] $iothreads                                = $redis::iothreads,
   Optional[String] $iothreads_do_reads                           = $redis::iothreads_do_reads,
 ) {
