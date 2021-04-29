@@ -320,6 +320,9 @@ always-show-logo yes
 save <%= seconds -%> <%= key_change -%> <%= "\n" -%>
 <%- end -%>
 <% end %>
+<% if @remove_all_save_points %>
+save ""
+<% end %>
 
 # By default Redis will stop accepting writes if RDB snapshots are enabled
 # (at least one save point) and the latest background save failed.

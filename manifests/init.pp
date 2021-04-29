@@ -301,6 +301,7 @@ class redis (
   Optional[String] $requirepass                                  = undef,
   Boolean $save_db_to_disk                                       = true,
   Hash $save_db_to_disk_interval                                 = { '900' => '1', '300' => '10', '60' => '10000' },
+  Boolean $remove_all_save_points                                = false,
   Boolean $service_enable                                        = true,
   Stdlib::Ensure::Service $service_ensure                        = 'running',
   String[1] $service_group                                       = 'redis',
