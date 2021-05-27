@@ -1379,6 +1379,7 @@ cluster-require-full-coverage <% if @cluster_require_full_coverage -%>yes<% else
 # Without a quorum of masters, slot ownership will not change automatically.
 #
 # cluster-allow-reads-when-down no
+cluster-allow-reads-when-down <% if @cluster_allow_reads_when_down -%>yes<% else -%>no<% end %>
 
 # In order to setup your cluster make sure to read the documentation
 # available at http://redis.io web site.

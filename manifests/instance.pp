@@ -274,6 +274,7 @@ define redis::instance (
   Integer[1] $cluster_node_timeout                               = $redis::cluster_node_timeout,
   Integer[0] $cluster_slave_validity_factor                      = $redis::cluster_slave_validity_factor,
   Boolean $cluster_require_full_coverage                         = $redis::cluster_require_full_coverage,
+  Boolean $cluster_allow_reads_when_down                         = $redis::cluster_allow_reads_when_down,
   Integer[0] $cluster_migration_barrier                          = $redis::cluster_migration_barrier,
   String[1] $service_name                                        = "redis-server-${name}",
   Stdlib::Ensure::Service $service_ensure                        = $redis::service_ensure,

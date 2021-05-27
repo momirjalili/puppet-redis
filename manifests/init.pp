@@ -222,6 +222,8 @@
 #   Minimum number of slaves master will remain connected with, for another
 #   slave to migrate to a master which is no longer covered by any slave.
 #   Only set if cluster_enabled is true
+# @param cluster_allow_reads_when_down
+# allow reads from cluster when a shard is down
 # @param instances
 #   Iterate through multiple instance configurations
 # @acllog_max_length
@@ -333,6 +335,7 @@ class redis (
   Integer[1] $cluster_node_timeout                               = 5000,
   Integer[0] $cluster_slave_validity_factor                      = 0,
   Boolean $cluster_require_full_coverage                         = true,
+  Boolean $cluster_allow_reads_when_down                         = false,
   Integer[0] $cluster_migration_barrier                          = 1,
   Hash[String[1], Hash] $instances                               = {},
   Optional[Integer[0]] $acllog_max_length                        = 128,
