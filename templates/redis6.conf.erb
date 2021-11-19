@@ -412,6 +412,7 @@ dir <%= @workdir %>
 #
 # masterauth <master-password>
 <% if @masterauth -%>masterauth <%= @masterauth %><% end -%>
+
 #
 # However this is not enough if you are using Redis ACLs (for Redis version
 # 6 or greater), and the default user is not capable of running the PSYNC
@@ -424,6 +425,7 @@ dir <%= @workdir %>
 # When masteruser is specified, the replica will authenticate against its
 # master using the new AUTH form: AUTH <username> <password>.
 <% if @masteruser -%>masterauth <%= @masteruser %><% end -%>
+
 # When a replica loses its connection with the master, or when the replication
 # is still in progress, the replica can act in two different ways:
 #
