@@ -380,6 +380,13 @@ If the master is password protected (using the "requirepass" configuration
 
 Default value: ``undef``
 
+##### `masteruser`
+
+Data type: `Optional[String[1]]`
+
+If the master is password protected. the user to use to authenticate to master for replication
+
+Default value: ``undef``
 ##### `maxclients`
 
 Data type: `Integer[1]`

@@ -70,6 +70,8 @@
 #   Specify the server verbosity level.
 # @param masterauth
 #   If the master is password protected (using the "requirepass" configuration
+# @param masteruser
+#   If the master is password protected, the user to authenticate with to master
 # @param maxclients
 #   Set the max number of connected clients at the same time.
 # @param maxmemory
@@ -223,6 +225,7 @@ define redis::instance (
   Stdlib::Filemode $log_dir_mode                                 = $redis::log_dir_mode,
   Redis::LogLevel $log_level                                     = $redis::log_level,
   Optional[String[1]] $masterauth                                = $redis::masterauth,
+  Optional[String[1]] $masteruser                                = $redis::masteruser,
   Integer[1] $maxclients                                         = $redis::maxclients,
   $maxmemory                                                     = $redis::maxmemory,
   $maxmemory_policy                                              = $redis::maxmemory_policy,
